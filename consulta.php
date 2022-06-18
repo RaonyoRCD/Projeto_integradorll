@@ -25,9 +25,9 @@ echo '<html lang="en">
 <head>
 <link rel="icon" 
       type="image/png" 
-      href="images/hicon.png">
+      href="fotos/ícone.png">
 	  
-<title>Helper</title>
+<title>Perfil HelperTec</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="keywords" content="Travel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -41,21 +41,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--// css -->
 <!-- font-awesome icons -->
 <link href="css/font-awesome.css" rel="stylesheet"> 
-<!-- //font-awesome icons -->
-<!-- font -->
-<link href="//fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Raleway:100,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-<!-- //font -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
-			$("html,body").animate({scrollTop:$(this.hash).offset().top},1000);
+			$(html,body).animate({scrollTop:$(this.hash).offset().top},1000);
 		});
-	})
+	});
 </script> 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -68,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="w3layouts-logo">
 				<h1>
-					<a href="indexpessoal.php">Helper </a>
+					<a href="index.html">HelperTec </a>
 				</h1>
 			</div>
 			<div class="top-nav">
@@ -87,10 +81,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="first-list"><a href="indexpessoal.php">Página Inicial</a></li>
 									<li><a href="perfilpessoal.php">'.$_SESSION["nome"].'</a></li>
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle hvr-sweep-to-right" data-hover="Pages" data-toggle="dropdown">Denúncias <b class="caret"></b></a>
+										<a href="#" class="dropdown-toggle hvr-sweep-to-right" data-hover="Pages" data-toggle="dropdown">Solicitações <b class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="areadedenuncia.php">Denunciar</a></li>
-											<li><a class="active" href="consulta.php">Consultar Denúncias</a></li>
+											<li><a href="solicitacao.php">Solicitar</a></li>
+											<li><a class="active" href="consulta.php">Consultar Solicitações</a></li>
 										</ul>
 									</li>
 									<li><a href="logout.php">Sair</a></li>
@@ -104,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="agileinfo-social-grids">
 				<ul>
-					<li><a href="https://www.facebook.com/Helper-Denúncia-Online-2070322706623352/"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://www.facebook.com/Definir-111116794904391"target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook"></i></a></li>	
 					
 					
 				</ul>
@@ -120,27 +114,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	echo'	<div class="contact">
 		<div class="container">
-			<h2 class="heading-agileinfo">Consulta de Denúncias<span>Helper - Denúncia Online</span></h2>
+			<h2 class="heading-agileinfo">Consulta de Solicitações<span>Consulte as suas solicitações aqui</span></h2>
 			<div class="w3layouts_mail_grids">
 				<div class="col-md-8 w3layouts_mail_grid_right">';
 	
-$host = "localhost";
+$host = "127.0.0.1";
 $username = "root";
 $password = "";
-$db = "helper";
+$db = "PI";
 $id = $_SESSION['id_pessoa'];
 $nome = $_SESSION['nome'];
 $telefone = $_SESSION['telefone'];
 $email = $_SESSION['email'];
 
-@mysql_connect($host,$username,$password) or die("Impossível conectar ao banco."); 
-mysql_select_db($db);
+$conn = mysqli_connect($host, $username, $password, $db);
+
+///@mysqli_connect($host,$username,$password) or die("Impossível conectar ao banco."); 
+//mysqli_select_db($db);
 
 
-$sqltest = mysql_query("Select count(descricao) as cont From denuncia WHERE pessoa_id_pessoa = $id");
-$test = mysql_fetch_assoc($sqltest);
+$sqltest = mysqli_query($conn, "SELECT count(descricao) as cont From denuncia WHERE pessoa_id_pessoa = $id");
+$test = mysqli_fetch_assoc($sqltest);
 
-$sql = mysql_query("Select descricao, imagem From denuncia WHERE pessoa_id_pessoa = $id");
+$sql = mysqli_query($conn, "SELECT descricao, imagem From denuncia WHERE pessoa_id_pessoa = $id");
 //$exibe = mysql_fetch_array($sql, MYSQL_NUM);
 
 
@@ -173,12 +169,12 @@ width="300px" height="300px" align="#">';
 $a = 1;
 
 
-$sth = mysql_query("SELECT imagem,descricao,id_denuncia FROM denuncia WHERE pessoa_id_pessoa = ".$_SESSION['id_pessoa']);
+$sth = mysqli_query($conn, "SELECT imagem,descricao,id_denuncia FROM denuncia WHERE pessoa_id_pessoa = ".$_SESSION['id_pessoa']);
 
 
 	
 	
-	while ($row = mysql_fetch_object($sth)) {
+	while ($row = mysqli_fetch_object($sth)) {
 	
 	$arq_destino = 'Blob'.$row->id_denuncia.'.JPG';
 	$conteudo_blob = $row->imagem;
@@ -246,22 +242,18 @@ while($row=@mysql_fetch_object($result)) {
 			<div class="agile-footer-grids">
 				<div class="col-md-4 agile-footer-grid">
 					<h4>Sobre nosso site</h4>
-					<p>Esse site foi desenvolvido por alunos do curso Técnico de Informática, da ETEC Arnaldo Pereira Cheregatti para apresentar como Trabalho de Conclusão de Curso. <span> O mesmo sendo desenvolvido sem nenhum fim lucrativo.</span></p>
+					<p>Esse site foi desenvolvido por alunos da <a href="https://univesp.br"target="_blank" rel="noopener noreferrer">Univesp</a>, com a finalidade de projetar uma aplicação voltada para a matéria de Projeto Integrador II.<span>O mesmo fora desenvolvido sem nenhum fim lucrativo.</span></p>
 				</div>
-			
-				
 				
 				<div class="col-md-2 agile-footer-grid">
-					<h4>Crimes Virtuais</h4>
+					<h4>Linhas do (REEE)</h4>
 					<ul>
-						<li>Discriminação/Racismo</li>
-						<li>Sexismo</li>
-						<li>Bullying Virtual</li>
-						<li>Homofobia</li>
-						<li>Pornografia Infantil</li>
+						<li>Linha Verde</li>
+						<li>Linha Marrom</li>
+						<li>Linha Azul</li>
+						<li>Linha Branca</li>
 					</ul>
 				</div>
-				
 				
 				
 				<div class="col-md-2 agile-footer-grid" align="right">
@@ -269,8 +261,8 @@ while($row=@mysql_fetch_object($result)) {
 					<ul>
 					<li class="text"><a href="indexpessoal.php">Página Inicial</a></li>
 						<li class="text"><a href="perfilpessoal.php">'.$_SESSION["nome"].'</a></li>
-						<li class="text"><a href="areadedenuncia.php">Denuncia</a></li>
-						<li class="text"><a href="suportepessoal.php">Suporte</a></li>
+						<li class="text"><a href="solicitacao.php">Solicitar</a></li>
+						<!-- <li class="text"><a href="suportepessoal.php">Suporte</a></li> -->
 						<li class="text"><a href="logout.php">Sair</a></li>
 						
 					</ul>
@@ -284,7 +276,7 @@ while($row=@mysql_fetch_object($result)) {
 <!-- footer -->
 <div class="copy-right">
 	<div class="container">
-			<p> &copy; 2018 Helper . Todos direitos reservados | Design by  <a href="http://w3layouts.com/"> W3layouts</a></p>
+			<p> &copy; 2022 HelperTec. Todos os direitos reservados.
 	</div>
 </div>
 <!-- //footer -->
@@ -295,97 +287,21 @@ while($row=@mysql_fetch_object($result)) {
 	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: "toTop", // fading element id
-				containerHoverID: "toTopHover", // fading element hover id
-				scrollSpeed: 1200,
-				easingType: "linear"
-				};
-			*/
-								
-			$().UItoTop({ easingType: "easeOutQuart" });
+				
+			$().UItoTop({ easingType: easeOutQuart });
 								
 			});
 	</script>
 	<!-- //here ends scrolling icon -->
+	<div vw class="enabled">
+	<div vw-access-button class="active"></div>
+	<div vw-plugin-wrapper>
+	  <div class="vw-plugin-top-wrapper"></div>
+	</div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+	new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 </body>	
-</html>';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-try {
-
-   
-   /*echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Nome: </th><th>Telefone: </th><th>E-mail: </th><th>Senha: </th></tr>";
-/*
-class TableRows extends RecursiveIteratorIterator { 
-    function __construct($it) { 
-        parent::__construct($it, self::LEAVES_ONLY); 
-    }
-
-    function current() {
-        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-    }
-
-    function beginChildren() { 
-        echo "<tr>"; 
-    } 
-
-    function endChildren() { 
-        echo "</tr>" . "\n";
-    } 
-}
-    $stmt = $conn->prepare("SELECT descricao, imagem from denuncia join pessoa on (id_pessoa = pessoa_id_pessoa) WHERE id_pessoa = $id"); 
-    $stmt->execute();
-
-    // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
-        echo $v;
-		echo "<img src='getImagem.php?PicNum=$row->pessoa_id_pessoa' \">";
-    }
-}
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-$conn = null;
-echo "</table>";*/
-
-
-?>
+</html>

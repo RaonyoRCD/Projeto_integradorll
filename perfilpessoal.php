@@ -10,9 +10,9 @@ echo '<html lang="en">
 <head>
 <link rel="icon" 
       type="image/png" 
-      href="images/hicon.png">
+      href="fotos/ícone.png">
 	  
-<title>Helper</title>
+<title>Perfil HelperTec</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="keywords" content="Travel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -26,21 +26,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--// css -->
 <!-- font-awesome icons -->
 <link href="css/font-awesome.css" rel="stylesheet"> 
-<!-- //font-awesome icons -->
-<!-- font -->
-<link href="//fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Raleway:100,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-<!-- //font -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
-			$("html,body").animate({scrollTop:$(this.hash).offset().top},1000);
+			$(html,body).animate({scrollTop:$(this.hash).offset().top},1000);
 		});
-	})
+	});
 </script> 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -53,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="w3layouts-logo">
 				<h1>
-					<a href="indexpessoal.php">Helper </a>
+					<a href="index.html">HelperTec </a>
 				</h1>
 			</div>
 			<div class="top-nav">
@@ -72,10 +66,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="first-list"><a href="indexpessoal.php">Página Inicial</a></li>
 									<li><a class="active" href="perfilpessoal.php">'.$_SESSION["nome"].'</a></li>
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle hvr-sweep-to-right" data-hover="Pages" data-toggle="dropdown">Denúncias <b class="caret"></b></a>
+										<a href="#" class="dropdown-toggle hvr-sweep-to-right" data-hover="Pages" data-toggle="dropdown">Solicitações <b class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="areadedenuncia.php">Denunciar</a></li>
-											<li><a href="consulta.php">Consultar Denúncias</a></li>
+											<li><a href="solicitacao.php">Solicitar</a></li>
+											<li><a href="consulta.php">Consultar Solicitações</a></li>
 										</ul>
 									</li>
 									<li><a href="logout.php">Sair</a></li>
@@ -89,9 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="agileinfo-social-grids">
 				<ul>
-					<li><a href="https://www.facebook.com/Helper-Denúncia-Online-2070322706623352/"><i class="fa fa-facebook"></i></a></li>
-					
-					
+				<li><a href="https://www.facebook.com/Definir-111116794904391"target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook"></i></a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -103,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 		<div class="contact">
 		<div class="container">
-			<h2 class="heading-agileinfo">Seja Bem-vindo '.$_SESSION['nome'].'<span>Helper - Denúncia Online</span></h2>
+			<h2 class="heading-agileinfo">Seja Bem-vindo '.$_SESSION['nome'].'<span>HelperTec - Denúncia Online</span></h2>
 			<div class="w3layouts_mail_grids">
 				<div class="col-md-4 w3layouts_mail_grid_left">
 					
@@ -162,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //contact form -->
 <!-- map -->	
 	<!-- <div class="map">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2482.432383990807!2d0.028213999961443994!3d51.52362882484525!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1423469959819" style="border:0"></iframe>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.9649046331897!2d-46.776306999999996!3d-22.20344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0!2zMjLCsDEyJzEyLjQiUyA0NsKwNDYnMzQuNyJX!5e0!3m2!1spt-BR!2sbr!4v1654110271880!5m2!1spt-BR!2sbr" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	 </div> -->
 <!-- //map -->	
 <!--
@@ -198,27 +190,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 
-	<div class="footer">
+		<div class="footer">
 		<div class="container">
 			<div class="agile-footer-grids">
 				<div class="col-md-4 agile-footer-grid">
 					<h4>Sobre nosso site</h4>
-					<p>Esse site foi desenvolvido por alunos do curso Técnico de Informática, da ETEC Arnaldo Pereira Cheregatti para apresentar como Trabalho de Conclusão de Curso. <span> O mesmo sendo desenvolvido sem nenhum fim lucrativo.</span></p>
+					<p>Esse site foi desenvolvido por alunos da <a href="https://univesp.br"target="_blank" rel="noopener noreferrer">Univesp</a>, com a finalidade de projetar uma aplicação voltada para a matéria de Projeto Integrador II.<span>O mesmo fora desenvolvido sem nenhum fim lucrativo.</span></p>
 				</div>
-			
-				
 				
 				<div class="col-md-2 agile-footer-grid">
-					<h4>Crimes Virtuais</h4>
+					<h4>Linhas do (REEE)</h4>
 					<ul>
-						<li>Discriminação/Racismo</li>
-						<li>Sexismo</li>
-						<li>Bullying Virtual</li>
-						<li>Homofobia</li>
-						<li>Pornografia Infantil</li>
+						<li>Linha Verde</li>
+						<li>Linha Marrom</li>
+						<li>Linha Azul</li>
+						<li>Linha Branca</li>
 					</ul>
 				</div>
-				
 				
 				
 				<div class="col-md-2 agile-footer-grid" align="right">
@@ -226,8 +214,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 					<li class="text"><a href="indexpessoal.php">Página Inicial</a></li>
 						<li class="text"><a href="perfilpessoal.php">'.$_SESSION["nome"].'</a></li>
-						<li class="text"><a href="areadedenuncia.php">Denuncia</a></li>
-						<li class="text"><a href="suportepessoal.php">Suporte</a></li>
+						<li class="text"><a href="solicitacao.php">Solicitar</a></li>
+						<!-- <li class="text"><a href="suportepessoal.php">Suporte</a></li> -->
 						<li class="text"><a href="logout.php">Sair</a></li>
 						
 					</ul>
@@ -241,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- footer -->
 <div class="copy-right">
 	<div class="container">
-			<p> &copy; 2018 Helper . Todos direitos reservados | Design by  <a href="http://w3layouts.com/"> W3layouts</a></p>
+			<p> &copy; 2022 HelperTec. Todos os direitos reservados.
 	</div>
 </div>
 <!-- //footer -->
@@ -252,20 +240,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: "toTop", // fading element id
-				containerHoverID: "toTopHover", // fading element hover id
-				scrollSpeed: 1200,
-				easingType: "linear"
-				};
-			*/
-								
-			$().UItoTop({ easingType: "easeOutQuart" });
+				
+			$().UItoTop({ easingType: easeOutQuart });
 								
 			});
 	</script>
 	<!-- //here ends scrolling icon -->
+	<div vw class="enabled">
+	<div vw-access-button class="active"></div>
+	<div vw-plugin-wrapper>
+	  <div class="vw-plugin-top-wrapper"></div>
+	</div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+	new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 </body>	
 </html>';
 ?>
